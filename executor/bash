@@ -1,0 +1,37 @@
+!!! using EMBEXP_CROSS = "/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-"
+!!! using EMBEXP_GDB   = "/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gdb"
+
+rm -rf output
+rm -f                        arch/arm8/src/exception.o      arch/arm8/src/handlers.o  arch/arm8/src/cache.o      arch/arm8/src/mmu.o    arch/arm8/src/experiment/brpredictor.o    arch/arm8/src/experiment/exp_run_asm.o              arch/arm8/src/experiment/exec_engine.o    arch/arm8/src/experiment/exp_cache_run_asm.o          arch/arm8/src/experiment/pmu.o      arch/arm8/src/experiment/exp_cache_runner.o                                               all/src/main.o      all/src/lib/uart_gen.o    all/src/lib/printf.o                                                board/rpi3/src/uart.o        board/rpi3/src/led.o  board/rpi3/src/rpi3hw.o  board/rpi3/src/startup.o  board/rpi3/src/entry.o                                                                                                       all/inc/config_input.h
+./scripts/gen_config_input.py
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o all/src/main.o all/src/main.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o all/src/lib/printf.o all/src/lib/printf.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o all/src/lib/uart_gen.o all/src/lib/uart_gen.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/mmu.o arch/arm8/src/mmu.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/handlers.o arch/arm8/src/handlers.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/cache.o arch/arm8/src/cache.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/experiment/pmu.o arch/arm8/src/experiment/pmu.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/experiment/brpredictor.o arch/arm8/src/experiment/brpredictor.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/experiment/exp_cache_runner.o arch/arm8/src/experiment/exp_cache_runner.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o arch/arm8/src/experiment/exec_engine.o arch/arm8/src/experiment/exec_engine.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o board/rpi3/src/uart.o board/rpi3/src/uart.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gcc -std=gnu99 -Wall -fno-builtin -fno-stack-protector -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -ggdb3 -c -o board/rpi3/src/rpi3hw.o board/rpi3/src/rpi3hw.c
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc arch/arm8/src/exception.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o arch/arm8/src/exception.o -
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc arch/arm8/src/experiment/exp_run_asm.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o arch/arm8/src/experiment/exp_run_asm.o -
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc arch/arm8/src/experiment/exp_cache_run_asm.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o arch/arm8/src/experiment/exp_cache_run_asm.o -
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc board/rpi3/src/startup.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o board/rpi3/src/startup.o -
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc board/rpi3/src/entry.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o board/rpi3/src/entry.o -
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-cpp -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc board/rpi3/src/led.S | /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-as  -Iall/inc -Iarch/arm8/inc -Iboard/rpi3/inc -o board/rpi3/src/led.o -
+mkdir -p output
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-ld -Bstatic -nostartfiles -nostdlib -o output/program.elf -T board/rpi3/rpi3.ld all/src/main.o all/src/lib/printf.o all/src/lib/uart_gen.o arch/arm8/src/mmu.o arch/arm8/src/handlers.o arch/arm8/src/cache.o arch/arm8/src/experiment/pmu.o arch/arm8/src/experiment/brpredictor.o arch/arm8/src/experiment/exp_cache_runner.o arch/arm8/src/experiment/exec_engine.o board/rpi3/src/uart.o board/rpi3/src/rpi3hw.o arch/arm8/src/exception.o arch/arm8/src/experiment/exp_run_asm.o arch/arm8/src/experiment/exp_cache_run_asm.o board/rpi3/src/startup.o board/rpi3/src/entry.o board/rpi3/src/led.o 
+/home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-objdump -t -h -D output/program.elf > "output/program.elf_da"
+./scripts/run_only.py /home/umate/Projects/HolBA/HolBA_opt/gcc-arm8-8.2-2018.08-aarch64-elf/bin/aarch64-elf-gdb "localhost:20213" output/program.elf rpi3 run_exp
+checking port 20200
+checking port 20213
+PORTS ARE OPEN
+---------------------------
+uart log > ./temp/uart.log
+---------------------------
+starting uart logging
+
+terminating uart logging process
