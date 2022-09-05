@@ -2,19 +2,17 @@
 
 Plumber is a framework to facilitate generating Leakage Templates, leveraging instruction and operand fuzzing and statistical analysis.
 
+For detailed information refer to the research paper [Microarchitectural Leakage Templates and Their Application to Cache-Based Side Channels](https://doi.org/10.1145/3548606.3560613) by Ahmad Ibrahim, Hamed Nemati, Till Schlüter, Nils Ole Tippenhauer, and Christian Rossow, published at [ACM CCS 2022](https://www.sigsac.org/ccs/CCS2022/).
+
 # Folders and organization
 
-```
-├─ gts: Plumber Generative Testcase Specification
-├─ Classification: Classifier and Analyzer
-├─ executor: The bare-metal execution environment for Plumber 
-├─ matcher: Proof-of-concept Leakage Template code pattern matcher. Contains a modified version of asmregex[1].
-
-```
+- `plumber/`: Core components of Plumber: Preprocessor and Instantiator for Plumber GTSes in our domain-specific language, Classifier, and Analyzer.
+- `executor/`: The bare-metal execution environment and Runner for Plumber
+- `matcher/`: Proof-of-concept Leakage Template code pattern matcher. Contains a modified version of asmregex[1].
 
 # Preprocessor and Instantiator
 
-The script `main.py` implements the parser and testcase instantiator and calls the testcase runner.
+The script `plumber/main.py` implements the parser and testcase instantiator and calls the testcase runner.
 It takes a GTS as input, parses and expands it, generates assembly code and runs the assembly code on the target platform.
 
 ## Writing a GTS
@@ -218,11 +216,11 @@ python3 main.py 'P(M_t=t1,s=s1 M_t=t2,s=s1) <M M>$'
 
 # Classifier and Analyzer
 
-After the testcase runner executed all the testcases generated from a GTS, the script `classifier_analyzer.py` can be used to examine the collected data.
+After the testcase runner executed all the testcases generated from a GTS, the script `plumber/classifier_analyzer.py` can be used to examine the collected data.
 
 ## Classification
 
-First, the testcases are classified based on user-defined criteria. The criteria are defined in a configuration file that is then passed to the script via the `-c` command line parameter. A template for this config file is provided as `classifier.template.ini`.
+First, the testcases are classified based on user-defined criteria. The criteria are defined in a configuration file that is then passed to the script via the `-c` command line parameter. A template for this config file is provided as `plumber/classifier.template.ini`.
 
 The following classification methods are currently supported: `cache_count`, `cache_exact_address`, `int_threshold`, `int_pct_error`.
 
