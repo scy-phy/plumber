@@ -131,10 +131,10 @@ if __name__ == "__main__":
 
 	print("running executor")
 
-	PATH_EXECUTOR_MAKEDIR: Final[str] = "./executor"
+	PATH_EXECUTOR_MAKEDIR: Final[str] = "../executor"
 	PATH_EXECUTOR_MAKEFILE_CONFIG: Final[str] = os.path.join(PATH_EXECUTOR_MAKEDIR, "Makefile.config")
-	PATH_EXECUTOR_CODEDIR: Final[str] = "./executor/code"
-	PATH_EXECUTOR_LOGFILE: Final[str] = "./executor/uart.log"
+	PATH_EXECUTOR_CODEDIR: Final[str] = "../executor/code"
+	PATH_EXECUTOR_LOGFILE: Final[str] = "../executor/uart.log"
 
 	# Parse Makefile.config to find the measurement method
 	measurement_method: str = read_measurement_method(PATH_EXECUTOR_MAKEFILE_CONFIG)
