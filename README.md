@@ -8,7 +8,7 @@ For detailed information refer to the research paper [Microarchitectural Leakage
 
 - `plumber/`: Core components of Plumber: Preprocessor and Instantiator for Plumber GTSes in our domain-specific language, Classifier, and Analyzer.
 - `executor/`: The bare-metal execution environment and Runner for Plumber
-- `matcher/`: Proof-of-concept Leakage Template code pattern matcher. Contains a modified version of asmregex[1].
+- `matcher/`: Proof-of-concept Leakage Template code pattern matcher. Contains a modified version of asmregex[^1].
 
 # Preprocessor and Instantiator
 
@@ -275,4 +275,4 @@ optional arguments:
                         Configuration file for the classifier. Default: classifier.ini
 ```
 
-[1] asmregex: https://github.com/Usibre/asmregex
+[^1]: asmregex: https://github.com/Usibre/asmregex
