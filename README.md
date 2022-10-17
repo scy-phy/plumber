@@ -2,7 +2,7 @@
 
 Plumber is a framework to facilitate generating Leakage Templates, leveraging instruction and operand fuzzing and statistical analysis.
 
-For detailed information refer to the research paper [Microarchitectural Leakage Templates and Their Application to Cache-Based Side Channels](https://doi.org/10.1145/3548606.3560613) by Ahmad Ibrahim, Hamed Nemati, Till Schlüter, Nils Ole Tippenhauer, and Christian Rossow, published at [ACM CCS 2022](https://www.sigsac.org/ccs/CCS2022/).
+For detailed information refer to the research paper [Microarchitectural Leakage Templates and Their Application to Cache-Based Side Channels](https://doi.org/10.1145/3548606.3560613) ([accepted version, PDF](https://publications.cispa.saarland/3775/1/paper.pdf)) by Ahmad Ibrahim, Hamed Nemati, Till Schlüter, Nils Ole Tippenhauer, and Christian Rossow, published at [ACM CCS 2022](https://www.sigsac.org/ccs/CCS2022/).
 
 # Folders and organization
 
